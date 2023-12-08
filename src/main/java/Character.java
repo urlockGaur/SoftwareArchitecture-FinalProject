@@ -40,7 +40,7 @@ public class Character {
     }
 
     public void defend(int attack) {
-        health = health - defendStrategy.defend(attack);
+        health = (int) (health - defendStrategy.defend(attack));
     }
 
     public void displayStats() {

@@ -17,14 +17,13 @@ public class Game {
         return a.getHealth() > 0 && b.getHealth() > 0 && rounds > 0;
     }
 
-    public void fight(Character player, Character opponent, UI ui) {
+    public void playGame(Character player, Character opponent, UI ui) {
         int rounds = 3;
         int playerWins = 0;
         int opponentWins = 0;
 
-        for(int round = 1; round <= rounds; round++) {
+        for (int round = 1; round <= rounds; round++) {
             ui.startFightRound(round);
-
             int playerAttack = player.attack();
             int opponentAttack = opponent.attack();
 
@@ -34,44 +33,22 @@ public class Game {
             ui.displayGameTitle();
             ui.selectFighter(List.of(player, opponent));
 
-            System.out.println("----------------------");
-            System.out.println("Round " + round + " Results: ");
-            System.out.println("Player Attack: " + playerAttack);
-            System.out.println("Opponent Attack: " + opponentAttack);
-            System.out.println(player);
-            System.out.println(opponent);
+            ui.displayRoundResults(player,  opponent);
 
-            ui.promptContinue();
-
-            if (player.getHealth() <= 0) {
-                opponentWins++;
-            } else if (opponent.getHealth() <=0) {
-                playerWins++;
-            }
-        }
-
-        if (playerWins > opponentWins) {
-            ui.displayWinner(player);
-        } else if (opponentWins > playerWins) {
-            ui.displayWinner(opponent);
-        } else {
-            ui.displayGameTitle();
-            System.out.println("\n=== TIE! What a match! ===");
-        }
-
-    }
-
-    public void playGame(Character player, Character opponent, UI ui) {
-        int maxRounds = 3;
-        int roundsPlayed = 0;
-
-        while (isGameDone(player, opponent, maxRounds)) {
-            roundsPlayed++;
-            fight(player, opponent, ui);
-
-            if (roundsPlayed >= maxRounds) {
+            if (player.getHealth() <= 0 || opponent.getHealth() <= 0) {
                 break;
             }
+            if (round == rounds && player.getHealth() > 0 && opponent.getHealth() > 0) {
+                // If it's the last round and there is a tie, play an additional round
+                round--;
+            }
         }
-    }
+        // determine winner bnased on number of rounds won
+        if (player.getHealth() > opponent.getHealth()) {
+            playerWins++;
+        } else if (opponent.getHealth() > player.getHealth()) {
+            opponentWins++;
+        }
+        ui.DisplayGameResults(playerWins, opponentWins);
+        }
 }

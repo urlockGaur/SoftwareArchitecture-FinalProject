@@ -1,3 +1,3 @@
 public interface DefendStrategy {
-    public int defend(int attack);
+    public double defend(int attack);
 }
