@@ -1,3 +1,5 @@
+import java.util.List;
+
 public class Main {
 
 
@@ -6,13 +8,29 @@ public class Main {
     }
 
     private void run() {
-        Game theGame = Game.getInstance();
-        Character player1 = CharacterFactory.getCharacter();
-        Character player2 = CharacterFactory.getCharacter();
 
-        while (theGame.isGameDone(player1, player2)) {
-            theGame.fight(player1, player2);
-        }
+        UI ui = new UI();
+        CharacterFactory characterFactory = new CharacterFactory();
+        Game theGame = Game.getInstance();
+
+        ui.welcomeMessage();
+
+        List<Character> characters = CharacterFactory.createCharacters();
+
+        ui.displayGameTitle();
+        int playerChoice = ui.selectFighterPrompt(characters);
+        Character player = characters.get(playerChoice - 1);
+
+        characters.remove(player); // ensures opponent selects different fighter
+        int opponentChoice = ui.selectFighterPrompt(characters);
+        Character opponent = characters.get(opponentChoice - 1);
+
+        ui.displayGameTitle();
+        ui.selectFighter(List.of(player, opponent));
+
+        theGame.playGame(player, opponent, ui);
+
+
     }
 }
 

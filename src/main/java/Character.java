@@ -43,6 +43,14 @@ public class Character {
         health = health - defendStrategy.defend(attack);
     }
 
+    public void displayStats() {
+        System.out.println("Character: " + name);
+        System.out.println("Health: " + health);
+        System.out.println("Attack: " + attackStrategy.getClass().getSimpleName());
+        System.out.println("Defend: " + defendStrategy.getClass().getSimpleName());
+        System.out.println("---------------------");
+    }
+
     @Override
     public String toString() {
         return "Character{" +
