@@ -5,7 +5,7 @@ public class ThunderousKickAttack implements AttackStrategy {
 
     @Override
     public int attackDmg() {
-        return 24;
+        return 19;
     };
 
     @Override

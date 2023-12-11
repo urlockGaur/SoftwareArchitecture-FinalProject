@@ -5,7 +5,7 @@ public class ShimmerSwordAttack implements AttackStrategy {
 
     @Override
     public int attackDmg() {
-        return 24;
+        return 16;
     };
 
     @Override
@@ -13,8 +13,8 @@ public class ShimmerSwordAttack implements AttackStrategy {
 
         int baseDamage = 16;
 
-        // does thunderous kick cause shockwave?
-        boolean causesDeepWound = rand.nextInt(100) < 35 ; //35% chance of deep wound
+        // does causesDeepWound kick cause shockwave?
+        boolean causesDeepWound = rand.nextInt(100) < 20 ; //20% chance of deep wound
 
         if (causesDeepWound) {
             System.out.println("Shimmer Sword cuts a deep wound!");

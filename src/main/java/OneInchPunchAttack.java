@@ -5,13 +5,13 @@ public class OneInchPunchAttack implements AttackStrategy {
 
     @Override
     public int attackDmg() {
-        return 24;
+        return 25;
     };
 
     @Override
     public int attack() {
 
-        int baseDamage = 20;
+        int baseDamage = 25;
 
         // does punch crit opponent?
         boolean isCritical = rand.nextInt(10) < 2; //20% chance of crit hit
