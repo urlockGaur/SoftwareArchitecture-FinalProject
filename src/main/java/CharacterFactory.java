@@ -1,13 +1,27 @@
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * The class CharacterFactory is responsible for creating characters and providing initial health values.
+ * The Factory Method was part of the project requirements
+ *
+ * The factory creates a list of characters with different attack and defend strategies. It also
+ * contains a method to retrieve the initial health based on the character's name.
+ *
+ * @author Anthony Framke
+ * @version 1.0
+ * @since 12/10/2023
+ */
 public class CharacterFactory {
     private static UI ui = new UI();
 
     public static List<Character> createCharacters() {
         List<Character> characters = new ArrayList<>();
 
-        //Creating 8 characters, with diff stats to select from
+        /**
+         * Creates a list of characters with different attack and defend strategies.
+         *
+         * @return The list of characters.
+         */
 
         characters.add(new Character(CharacterName.FREEZE, new FrostPunchAttack(), new IceWallDefend()));
         characters.add(new Character(CharacterName.VULKANO, new FireBreathAttack(), new BoulderDefend()));
@@ -20,7 +34,12 @@ public class CharacterFactory {
 
         return characters;
     }
-
+    /**
+     * Retrieves the initial health based on the character's name.
+     *
+     * @param characterName The name of the character.
+     * @return The initial health of the character.
+     */
     public static int getInitialHealth(CharacterName characterName) {
         // Logic to determine and return the initial health based on the character type
         // For example:
