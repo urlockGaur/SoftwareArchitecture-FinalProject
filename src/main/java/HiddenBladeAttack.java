@@ -5,7 +5,7 @@ public class HiddenBladeAttack implements AttackStrategy {
 
     @Override
     public int attackDmg() {
-        return 24;
+        return 17;
     };
 
     @Override

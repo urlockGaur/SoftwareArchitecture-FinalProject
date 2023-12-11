@@ -5,7 +5,7 @@ public class FrostPunchAttack implements AttackStrategy {
 
     @Override
     public int attackDmg() {
-        return 24;
+        return 10;
     };
 
     @Override

@@ -5,7 +5,7 @@ public class EnergyBlastAttack implements AttackStrategy {
 
     @Override
     public int attackDmg() {
-        return 24;
+        return 18;
     };
     @Override
     public int attack() {

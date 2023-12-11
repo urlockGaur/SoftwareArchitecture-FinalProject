@@ -19,7 +19,8 @@ public class EmperorsBladeAttack implements AttackStrategy {
             System.out.println("The attack slices deep! The opponent's soul bleeds!");
             return (baseDamage * 2) + 5;
         } else {
-            return baseDamage;
+
+            return baseDamage + 5;
         }
     }
 }
