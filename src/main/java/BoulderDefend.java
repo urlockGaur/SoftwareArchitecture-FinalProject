@@ -1,6 +1,7 @@
 import java.util.Random;
 /**
  * The class Boulder Defend represents a defensive strategy based on a wall of boulders forming.
+ * Part of the Strategy Pattern requirement of project
  *
  * This class implements the DefendStrategy interface and provides a method to defend against an
  * opponent's attack using a boulder wall. The success of the boulder wall activation is determined by a random chance.

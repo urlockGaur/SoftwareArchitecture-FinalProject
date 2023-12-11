@@ -1,6 +1,7 @@
 import java.util.Random;
 /**
  * The class Seismic Block Defend represents a defensive strategy based on a seismic wave creating debris that can be used to block attacks.
+ * Part of the Strategy Pattern requirement of project
  *
  * This class implements the DefendStrategy interface and provides a method to defend against an
  * opponent's attack using a defensive wall of debris. The success of the seismic block is determined by a random chance.

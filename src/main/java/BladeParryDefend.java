@@ -1,6 +1,7 @@
 import java.util.Random;
 /**
  * The class Blade Parry Defend represents a defensive strategy based on blade parrying.
+ * Part of the Strategy Pattern requirement of project
  *
  * This class implements the DefendStrategy interface and provides a method to defend against an
  * opponent's attack using a blade parry. The success of the parry is determined by a random chance.

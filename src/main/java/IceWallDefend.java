@@ -1,6 +1,7 @@
 import java.util.Random;
 /**
  * The class Ice Wall Defend represents a defensive strategy based on a ice wall and its ability to enhance to a spiked ice wall.
+ * Part of the Strategy Pattern requirement of project
  *
  * This class implements the DefendStrategy interface and provides a method to defend against an
  * opponent's attack using a ice wall. The success of the ice wall enhance to spiked ice wall is determined by a random chance.

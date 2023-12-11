@@ -1,6 +1,7 @@
 import java.util.Random;
 /**
  * The class Poorly Trained Defend represents a defensive strategy based on a fighters lack of training his defensive abilities.
+ * Part of the Strategy Pattern requirement of project
  *
  * This class implements the DefendStrategy interface and provides a method to defend against an
  * opponent's attack using a quick parry that is not great a blocking. The success of the quick parry is determined by a random chance and give bonus health if it goes off.

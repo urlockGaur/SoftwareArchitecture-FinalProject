@@ -1,6 +1,7 @@
 import java.util.Random;
 /**
  * The class Camo Cloak Defend represents a defensive strategy based on a camo cloak that blends the wearer into the immediate environment.
+ * * Part of the Strategy Pattern requirement of project
  *
  * This class implements the DefendStrategy interface and provides a method to defend against an
  * opponent's attack using a camo cloak. The success of the camo cloak activation is determined by a random chance.

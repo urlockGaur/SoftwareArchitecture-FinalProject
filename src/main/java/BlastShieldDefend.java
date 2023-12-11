@@ -1,6 +1,7 @@
 import java.util.Random;
 /**
  * The class Blast Shield Defend represents a defensive strategy based on Blast Shield activating.
+ * Part of the Strategy Pattern requirement of project
  *
  * This class implements the DefendStrategy interface and provides a method to defend against an
  * opponent's attack using a blast shield. The success of the blast shield enhanced activation is determined by a random chance.
