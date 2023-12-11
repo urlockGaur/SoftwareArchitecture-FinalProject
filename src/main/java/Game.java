@@ -1,4 +1,5 @@
 import java.util.List;
+
 public class Game {
     private static Game instance;
 
@@ -13,42 +14,48 @@ public class Game {
         return instance;
     }
 
-    public boolean isGameDone(Character a, Character b, int rounds) {
-        return a.getHealth() > 0 && b.getHealth() > 0 && rounds > 0;
-    }
-
     public void playGame(Character player, Character opponent, UI ui) {
-        int rounds = 3;
         int playerWins = 0;
         int opponentWins = 0;
 
-        for (int round = 1; round <= rounds; round++) {
+        ui.displayGameTitle();
+        // Play three rounds
+        for (int round = 1; round <= 3; round++) {
             ui.startFightRound(round);
-            int playerAttack = player.attack();
-            int opponentAttack = opponent.attack();
 
-            player.defend(opponentAttack);
-            opponent.defend(playerAttack);
+            // Continue the round until one player's health is zero
+            while (player.getHealth() > 0 && opponent.getHealth() > 0) {
 
-            ui.displayGameTitle();
-            ui.selectFighter(List.of(player, opponent));
+                System.out.println("------fighting noises intensify------");
+                // Player attacks and defends
+                int playerAttack = player.attack();
+                player.defend(opponent);
 
-            ui.displayRoundResults(player,  opponent);
+                // Opponent attacks and defends
+                int opponentAttack = opponent.attack();
+                opponent.defend(player);
 
-            if (player.getHealth() <= 0 || opponent.getHealth() <= 0) {
-                break;
+                // Print round results
+                ui.displayCombat(player, opponent, playerAttack, opponentAttack);
+
+                ui.promptContinue();
             }
-            if (round == rounds && player.getHealth() > 0 && opponent.getHealth() > 0) {
-                // If it's the last round and there is a tie, play an additional round
-                round--;
+
+            // Determine the winner of the round based on health remaining
+
+            if (player.getHealth() <= 0) {
+                opponentWins++;
+            } else if (opponent.getHealth() <= 0) {
+                playerWins++;
             }
+            ui.displayRoundResults(player, opponent);
+
+            // Reset stats for the next round
+            player.setHealth(CharacterFactory.getInitialHealth(player.getName()));
+            opponent.setHealth(CharacterFactory.getInitialHealth(opponent.getName()));
         }
-        // determine winner bnased on number of rounds won
-        if (player.getHealth() > opponent.getHealth()) {
-            playerWins++;
-        } else if (opponent.getHealth() > player.getHealth()) {
-            opponentWins++;
-        }
-        ui.DisplayGameResults(playerWins, opponentWins);
-        }
+
+        // Determine the overall winner based on rounds won
+        ui.displayGameResults(playerWins, opponentWins);
+    }
 }

@@ -9,15 +9,40 @@ public class CharacterFactory {
 
         //Creating 8 characters, with diff stats to select from
 
-        characters.add(new Character("Freeze",100, new FrostPunchAttack(), new IceWallDefend()));
-        characters.add(new Character("Vulkano", 110, new FireBreathAttack(), new BoulderDefend()));
-        characters.add(new Character("Stryker", 85, new OneInchPunchAttack(), new PoorlyTrainedDefend()));
-        characters.add(new Character("Cyrptarq",95 , new EnergyBlastAttack(), new BlastShieldDefend()));
-        characters.add(new Character("Rogal", 100, new EmperorsBladeAttack(), new UnbreakableShieldDefend()));
-        characters.add(new Character("Tanith", 90, new HiddenBladeAttack(), new CamoCloakDefend()));
-        characters.add(new Character("Quake", 100, new ThunderousKickAttack(), new SeismicBlockDefend()));
-        characters.add(new Character("Vee", 100, new ShimmerSwordAttack(), new BladeParryDefend()));
+        characters.add(new Character(CharacterName.FREEZE, new FrostPunchAttack(), new IceWallDefend()));
+        characters.add(new Character(CharacterName.VULKANO, new FireBreathAttack(), new BoulderDefend()));
+        characters.add(new Character(CharacterName.STRYKER,  new OneInchPunchAttack(), new PoorlyTrainedDefend()));
+        characters.add(new Character(CharacterName.CYRPTARQ, new EnergyBlastAttack(), new BlastShieldDefend()));
+        characters.add(new Character(CharacterName.ROGAL, new EmperorsBladeAttack(), new UnbreakableShieldDefend()));
+        characters.add(new Character(CharacterName.TANITH, new HiddenBladeAttack(), new CamoCloakDefend()));
+        characters.add(new Character(CharacterName.QUAKE, new ThunderousKickAttack(), new SeismicBlockDefend()));
+        characters.add(new Character(CharacterName.VEE, new ShimmerSwordAttack(), new BladeParryDefend()));
 
         return characters;
+    }
+
+    public static int getInitialHealth(CharacterName characterName) {
+        // Logic to determine and return the initial health based on the character type
+        // For example:
+        switch (characterName) {
+            case FREEZE:
+                return 100;
+            case VULKANO:
+                return 110;
+            case STRYKER:
+                return 85;
+            case CYRPTARQ:
+                return 95;
+            case ROGAL:
+                return 100;
+            case TANITH:
+                return 90;
+            case QUAKE:
+                return 100;
+            case VEE:
+                return 100;
+            default:
+                return 100; // Default initial health
+        }
     }
 }

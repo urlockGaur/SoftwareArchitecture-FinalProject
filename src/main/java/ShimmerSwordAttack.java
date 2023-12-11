@@ -4,6 +4,11 @@ public class ShimmerSwordAttack implements AttackStrategy {
     private Random rand = new Random();
 
     @Override
+    public int attackDmg() {
+        return 24;
+    };
+
+    @Override
     public int attack() {
 
         int baseDamage = 16;

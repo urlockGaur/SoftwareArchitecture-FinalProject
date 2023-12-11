@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
@@ -8,29 +9,37 @@ public class Main {
     }
 
     private void run() {
-
         UI ui = new UI();
         CharacterFactory characterFactory = new CharacterFactory();
         Game theGame = Game.getInstance();
 
         ui.welcomeMessage();
-
         List<Character> characters = CharacterFactory.createCharacters();
+        List<Character> selectedCharacters = new ArrayList<>();
 
-        ui.displayGameTitle();
-        int playerChoice = ui.selectFighterPrompt(characters);
-        Character player = characters.get(playerChoice - 1);
+        do {
+            // Display the list of fighter/character
+            ui.displayGameTitle();
+            ui.displayCharacterList(characters);
 
-        characters.remove(player); // ensures opponent selects different fighter
-        int opponentChoice = ui.selectFighterPrompt(characters);
-        Character opponent = characters.get(opponentChoice - 1);
+            // Allow the player to select a fighter/character
+            int playerChoice = ui.selectFighterPrompt(characters);
+            Character player = characters.get(playerChoice);
+            selectedCharacters.add(player);
 
-        ui.displayGameTitle();
-        ui.selectFighter(List.of(player, opponent));
+            int opponentChoice = ui.selectFighterPrompt(characters);
+            Character opponent = characters.get(opponentChoice);
+            selectedCharacters.add(opponent);
 
-        theGame.playGame(player, opponent, ui);
+            ui.displaySelectedFighters(selectedCharacters);
 
+            theGame.playGame(player, opponent, ui);
 
+            // Debug print statements
+            System.out.println("Player choice index: " + playerChoice);
+            System.out.println("Opponent choice index: " + opponentChoice);
+
+        } while (ui.playAgain());
     }
 }
 

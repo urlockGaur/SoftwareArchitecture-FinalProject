@@ -3,17 +3,16 @@ class IceWallDefend implements DefendStrategy {
 
     private Random rand = new Random();
     @Override
-    public double defend(int attack) {
+    public int defend(int currentHealth, int opponentAttack) {
 
-        double baseReduction = attack / 7.5;
         boolean spikedIceWallBlock = rand.nextInt(100) < 25; // 25% chance of spike ice wall block
 
         if (spikedIceWallBlock) {
-            System.out.println("Ice Wall is boosted to Spiked Ice Wall! Extra Defense!");
-            return (baseReduction + 5.0);
+            System.out.println("[Freeze] Ice Wall is boosted to Spiked Ice Wall! Extra Defense!");
+            return (currentHealth + 2) - opponentAttack;
         } else {
-            System.out.println("Ice Wall defends!");
-            return baseReduction;
+            System.out.println("[Freeze] Ice Wall defends!");
+            return currentHealth - opponentAttack;
         }
     }
 }
