@@ -35,9 +35,10 @@ public class HiddenBladeAttack implements AttackStrategy {
         boolean causesPoisoned = rand.nextInt(100) < 66 ; //66% chance of poison
 
         if (causesPoisoned) {
-            System.out.println("Tanith's blades are poisoned! The opponent feels weakened.");
+            System.out.println("[TANITH] These blades are poisoned! The opponent feels weakened.");
             return baseDamage + 6;
         } else {
+            System.out.println("[TANITH] Hidden Blades flash momentarily and strike!");
             return baseDamage;
         }
     }

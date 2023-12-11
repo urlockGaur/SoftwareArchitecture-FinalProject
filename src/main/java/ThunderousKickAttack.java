@@ -35,9 +35,10 @@ public class ThunderousKickAttack implements AttackStrategy {
         boolean causesShockwave = rand.nextInt(100) < 22 ; //22% chance of soul bleed
 
         if (causesShockwave) {
-            System.out.println("Thunderous Kick causes a shockwave!");
+            System.out.println("[QUAKE] Thunderous Kick causes a massive shockwave!");
             return baseDamage + 12;
         } else {
+            System.out.println("[QUAKE] Thunderous Kick lands causing moderate damage!");
             return baseDamage;
         }
     }

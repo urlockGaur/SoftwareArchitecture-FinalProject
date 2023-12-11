@@ -28,10 +28,10 @@ public class PoorlyTrainedDefend implements DefendStrategy {
 
 
         if (quickParry) {
-            System.out.println("Stryker miraculously parries the blow!");
+            System.out.println("[STRYKER] At the last second, the blow is parried with ease!");
             return currentHealth + 20;
         } else {
-            System.out.println("Blocking is for the weak.");
+            System.out.println("[STRYKER] Blocking is for the weak.");
             return (currentHealth - opponentAttack) / 2;
         }
     }

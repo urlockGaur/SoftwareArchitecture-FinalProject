@@ -35,9 +35,10 @@ public class FrostPunchAttack implements AttackStrategy {
         boolean freezes = rand.nextInt(10) < 3; //30% chance of freeze
 
         if (freezes) {
-            System.out.println("Frost Punch freezes the opponent!");
+            System.out.println("[Freeze] Frost Punch freezes the opponent!");
             return baseDamage + 5;
         } else {
+            System.out.println("[Freeze] Frost Punch lands cold blows!");
             return baseDamage;
         }
     }

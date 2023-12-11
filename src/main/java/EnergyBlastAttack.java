@@ -37,9 +37,10 @@ public class EnergyBlastAttack implements AttackStrategy {
         boolean causesExplosion = rand.nextInt(100) < 25; //25% chance of explosion
 
         if (causesExplosion) {
-            System.out.println("Energy Blast triggers a massive explosion!");
+            System.out.println("[CYRPTARQ] Energy Blast triggers a massive explosion!");
             return baseDamage + 10;
         } else {
+            System.out.println("[CYRPTARQ] Energy Blast discharges!");
             return baseDamage;
         }
     }

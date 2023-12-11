@@ -36,9 +36,10 @@ public class ShimmerSwordAttack implements AttackStrategy {
         boolean causesDeepWound = rand.nextInt(100) < 20 ; //20% chance of deep wound
 
         if (causesDeepWound) {
-            System.out.println("Shimmer Sword cuts a deep wound!");
+            System.out.println("[VEE] Shimmer Sword cuts a deep wound!");
             return baseDamage * 3;
         } else {
+            System.out.println("[VEE] Shimmer Sword attacks with lightning speed!");
             return baseDamage;
         }
     }

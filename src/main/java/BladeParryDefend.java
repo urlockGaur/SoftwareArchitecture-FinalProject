@@ -26,10 +26,10 @@ public class BladeParryDefend implements DefendStrategy{
         boolean activatesFuriosBladeParry = rand.nextInt(100) < 13; // 13% chance of activation
 
         if (activatesFuriosBladeParry) {
-            System.out.println("Furious Blade Parry deflects the attack!");
+            System.out.println("[VEE] Furious Blade Parry deflects the attack!");
             return currentHealth;
         } else {
-            System.out.println("Blade Parry deflects most of the attack.");
+            System.out.println("[VEE] Blade Parry deflects most of the attack.");
             return (currentHealth + 2) - opponentAttack;
         }
     }

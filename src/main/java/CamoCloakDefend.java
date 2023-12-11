@@ -25,10 +25,10 @@ public class CamoCloakDefend implements DefendStrategy {
             boolean activatesCamoCloak = rand.nextInt(100) < 15; // 50% chance of activation
 
             if (activatesCamoCloak) {
-                System.out.println("Camo Cloak activates, blending Tanith into the environment. Impossible to see.");
+                System.out.println("[TANITH] Camo Cloak activates, blending Tanith into the environment. Impossible to see.");
                 return currentHealth;
             } else {
-                System.out.println("Camo cloak shifts colors, causing a glancing blow.");
+                System.out.println("[TANITH] Camo cloak shifts colors, causing a glancing blow.");
                 return currentHealth - opponentAttack;
             }
         }

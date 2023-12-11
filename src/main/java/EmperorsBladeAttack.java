@@ -36,10 +36,10 @@ public class EmperorsBladeAttack implements AttackStrategy {
         boolean causesSoulBleed = rand.nextInt(100) < 10 ; //10% chance of soul bleed
 
         if (causesSoulBleed) {
-            System.out.println("The attack slices deep! The opponent's soul bleeds!");
+            System.out.println("[ROGAL] The attack slices deep! The opponent's soul bleeds!");
             return (baseDamage * 2) + 5;
         } else {
-
+            System.out.println("[ROGAL] The Emperors Blade lands a devastating blow!");
             return baseDamage + 5;
         }
     }

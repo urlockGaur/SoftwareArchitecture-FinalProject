@@ -35,9 +35,10 @@ public class FireBreathAttack implements AttackStrategy {
         boolean burning = rand.nextInt(100) < 50; //50% chance of burning
 
         if (burning) {
-            System.out.println("Fire Breath burns the opponent. Crispy!");
+            System.out.println("[VULKANO] Fire Breath briefly engulfs the opponent. Crispy!");
             return baseDamage + 4;
         } else {
+            System.out.println("[VULKANO] Fire Breath spouts a ball of fire!");
             return baseDamage;
         }
     }

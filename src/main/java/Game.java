@@ -1,12 +1,11 @@
 import java.util.List;
 /**
- * The enum CharacterName represents the names of different characters in the game.
+ * The Game class represents the main game logic and flow.
  *
- * Each constant in this enum corresponds to a unique character with a specific set of
- * characteristics and abilities.
- *
- * The factory creates a list of characters with different attack and defend strategies. It also
- * contains a method to retrieve the initial health based on the character's name.
+ * It follows the Singleton pattern, ensuring that only one instance of the game exists.
+ * The game consists of three rounds where two characters engage in combat. The outcome of each
+ * round is determined based on the health of the characters. The overall winner is decided by the
+ * number of rounds won by each player.
  *
  * @author Anthony Framke
  * @version 1.0
@@ -14,18 +13,30 @@ import java.util.List;
  */
 public class Game {
     private static Game instance;
-
+    /**
+     * Private constructor to enforce the Singleton pattern.
+     */
     private Game() {
 
     }
-
+    /**
+     * Gets the instance of the Game class. If an instance does not exist, a new one is created.
+     *
+     * @return The singleton instance of the Game class.
+     */
     public static Game getInstance() {
         if (instance == null) {
             instance = new Game();
         }
         return instance;
     }
-
+    /**
+     * Plays the game for a given player and opponent, displaying the results through the UI.
+     *
+     * @param player   The player character.
+     * @param opponent The opponent character.
+     * @param ui       The user interface for displaying game information.
+     */
     public void playGame(Character player, Character opponent, UI ui) {
         int playerWins = 0;
         int opponentWins = 0;

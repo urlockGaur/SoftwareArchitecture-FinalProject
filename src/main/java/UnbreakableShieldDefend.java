@@ -24,10 +24,10 @@ public class UnbreakableShieldDefend implements DefendStrategy {
         boolean activatesUnbreakable = rand.nextInt(100) < 50; // 50% chance of activation
 
         if (activatesUnbreakable) {
-            System.out.println("Unbreakable Shield activated blocking all damage!");
+            System.out.println("[ROGAL] Unbreakable Shield activated blocking all damage!");
             return currentHealth;
         } else {
-            System.out.println("Unbreakable Shield absorbs the hit with incredible ease.");
+            System.out.println("[ROGAL] Unbreakable Shield absorbs the hit with incredible ease.");
             return currentHealth - opponentAttack + 5;
         }
     }
